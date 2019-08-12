@@ -15,6 +15,7 @@
   price_per_day: rand(50..1000),
   capacity: rand(2..20),
   location: Faker::Address.full_address,
-  type: boat_type.sample
+  boat_type: boat_type.sample,
+  owner_name: Faker::Name.name
   )
 end
