@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+20.times do
+  boat_type = ["yacht", "sailboat", "canoe", "fishing boat"]
+  Boat.create(
+  name: Faker::Coffee.blend_name,
+  price_per_day: rand(50..1000),
+  capacity: rand(2..20),
+  location: Faker::Address.full_address,
+  type: boat_type.sample
+  )
+end
