@@ -16,6 +16,7 @@
   capacity: rand(2..20),
   location: Faker::Address.full_address,
   boat_type: boat_type.sample,
-  owner_name: Faker::Name.name
+  owner_name: Faker::Name.name,
+  description: Faker::Lorem.paragraph
   )
 end
