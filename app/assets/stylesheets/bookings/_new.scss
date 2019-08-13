@@ -5,11 +5,20 @@
 }
 
 .container {
-  background: white;
+  background-color: white;
   border-radius: 4px;
+  width: 50vw;
 }
 
 
 .button {
   background: blue;
+}
+
+#start_date {
+  background-color: white;
+}
+
+#end_date {
+  background-color: white;
 }

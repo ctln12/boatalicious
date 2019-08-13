@@ -1,9 +1,11 @@
 <div class="container">
-  <h1>Make a booking</h1>
-  <%= simple_form_for @booking, defaults: { input_html: { class: 'my_class' } } do |f| %>
-    <%= f.input :start_date, as: :date, label_html: { class: 'my_class' } %>
-    <%= f.input :end_date, as: :date %>
-    <%= f.button :submit, label_html: { class: 'button' } %>
-  <% end %>
+  <div class="form-wrapper">
+    <h1>Make a booking</h1>
+    <%= simple_form_for @booking do |f| %>
+      <%= f.input :start_date, as: :string, input_html: { id: 'start_date' } %>
+      <%= f.input :end_date, as: :string, input_html: { id: 'end_date' } %>
+      <%= f.button :submit, class: 'btn btn-primary'  %>
+    <% end %>
+  </div>
 </div>
 
