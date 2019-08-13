@@ -1,0 +1,14 @@
+<a href="/boats/<%= boat.id %>" class="card-boats">
+  <div class="card mt-4 card-boats-size">
+    <img src="<%= boat.image_url %>" class="card-img-top card-boats-image-height" alt="boat image">
+    <div class="card-body card-boats-body-height">
+      <h6 class="card-subtitle mb-2 text-muted card-boats-font-size"><%= boat.boat_type %></h6>
+      <h5 class="card-title"><%= boat.name %></h5>
+      <p class="card-text card-boats-text-font-size">
+        <%= boat.location.match(/,\s(.+),/)[1] %> |
+        <%= boat.capacity %> p |
+        <%= boat.owner_name %>
+      </p>
+    </div>
+  </div>
+</a>
