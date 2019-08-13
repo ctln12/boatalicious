@@ -1,7 +1,7 @@
-<%= render partial: 'banner', object: @boat %>
+<%= render partial: 'boat_banner', object: @boat %>
 <div class="container d-flex justify-content-around">
-  <div class="boat_details">
-    <div class="card_boat_name">
+  <div class="boat-details">
+    <div class="card-boat-name">
       <div class="card-trip-infos">
         <h1><%= @boat.name %></h1>
         <p><%= @boat.location %></p>
@@ -9,7 +9,7 @@
       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
     </div>
     <hr>
-    <div class="card_boat_amenities d-flex">
+    <div class="card-boat-amenities d-flex">
       <div class="amenity text-center">
         <i class="fas fa-life-ring"></i>
         <h2><%= @boat.capacity %> people</h2>
@@ -20,7 +20,7 @@
       </div>
     </div>
     <hr>
-    <div class="card_description">
+    <div class="card-description">
       <%= @boat.description %>
     </div>
   </div>
