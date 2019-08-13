@@ -18,15 +18,15 @@ require 'open-uri'
     boat_type: boat_type.sample,
     owner_name: Faker::Name.name,
     description: Faker::Lorem.paragraph,
-    boat_photo: 'https://source.unsplash.com/qToVxSYXPYU/1600x900'
+    image_url: 'https://source.unsplash.com/qToVxSYXPYU/1600x900'
   )
 end
 
 10.times do
   User.create(
     email: Faker::Internet.email,
-    password: '123456'
-    image: 'https://download.ams.birds.cornell.edu/api/v1/asset/169495571/1800'
+    password: '123456',
+    user_image: 'https://download.ams.birds.cornell.edu/api/v1/asset/169495571/1800'
   )
 end
 
