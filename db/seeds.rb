@@ -5,3 +5,28 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'open-uri'
+
+50.times do
+  boat_type = ["yacht", "sailboat", "canoe", "fishing boat"]
+  Boat.create(
+    name: Faker::Coffee.blend_name,
+    price_per_day: rand(50..1000),
+    capacity: rand(2..20),
+    location: Faker::Address.full_address,
+    boat_type: boat_type.sample,
+    owner_name: Faker::Name.name,
+    description: Faker::Lorem.paragraph,
+    image_url: 'https://source.unsplash.com/qToVxSYXPYU/1600x900'
+  )
+end
+
+10.times do
+  User.create(
+    email: Faker::Internet.email,
+    password: '123456',
+    user_image: 'https://download.ams.birds.cornell.edu/api/v1/asset/169495571/1800'
+  )
+end
+
