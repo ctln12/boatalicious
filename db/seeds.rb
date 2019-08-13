@@ -26,7 +26,7 @@ end
   User.create(
     email: Faker::Internet.email,
     password: '123456'
-    image:
+    image: 'https://download.ams.birds.cornell.edu/api/v1/asset/169495571/1800'
   )
 end
 
