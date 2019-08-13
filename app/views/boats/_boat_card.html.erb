@@ -1,1 +1,12 @@
-hello
+<a href="/boats/<%= boat.id %>">
+  <div class="card mt-4 size">
+    <img src="<%= boat.image_url %>" class="card-img-top" alt="boat image">
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted"><%= boat.boat_type %></h6>
+      <h5 class="card-title"><%= boat.name %></h5>
+      <p class="card-text">
+        Lausanne | <%= boat.capacity %> p | <%= boat.owner_name %>
+      </p>
+    </div>
+  </div>
+</a>

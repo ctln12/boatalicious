@@ -1,10 +1,7 @@
-<%= render 'home-banner' %>
-<div class="container">
-  <h1>Boats</h1>
+<%= render 'home_banner' %>
 
-  <ul>
-    <% @boats.each do |boat| %>
-      <li><%= boat.name %></li>
-    <% end %>
-  </ul>
+<div class="container d-flex flex-wrap justify-content-between">
+  <% @boats.each do |boat| %>
+    <%= render 'boat_card', boat: boat %>
+  <% end %>
 </div>
