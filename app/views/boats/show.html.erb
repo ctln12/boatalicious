@@ -1,0 +1,33 @@
+<%= render partial: 'banner', object: @boat %>
+<div class="container d-flex justify-content-around">
+  <div class="boat_details">
+    <div class="card_boat_name">
+      <div class="card-trip-infos">
+        <h1><%= @boat.name %></h1>
+        <p><%= @boat.location %></p>
+      </div>
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+    </div>
+    <hr>
+    <div class="card_boat_amenities d-flex">
+      <div class="amenity text-center">
+        <i class="fas fa-life-ring"></i>
+        <h2><%= @boat.capacity %> people</h2>
+      </div>
+      <div class="amenity text-center">
+        <i class="fas fa-ship"></i>
+        <h2><%= @boat.boat_type %></h2>
+      </div>
+    </div>
+    <hr>
+    <div class="card_description">
+      <%= @boat.description %>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center align-items-center">
+    <a class="btn btn-primary m-5" href="#" role="button">Book Now</a>
+  </div>
+
+</div>
+
+
