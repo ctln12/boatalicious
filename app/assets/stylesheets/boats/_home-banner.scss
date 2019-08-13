@@ -1,19 +1,22 @@
-.banner {
+.home-banner {
   background-size: cover;
   background-position: center;
   padding: 150px 0;
+  height: 50%;
+  text-align: center;
 }
 
-.banner h1 {
+.home-banner h1 {
   margin: 0;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
+  text-shadow: 1px 3px 3px rgba(0,0,0,0.8);
+  font-size: 60px;
+  font-weight: 300;
+  letter-spacing: 5px;
 }
 
-.banner p {
-  font-size: 20px;
+.home-banner p {
+  font-size: 30px;
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
