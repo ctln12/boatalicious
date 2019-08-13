@@ -6,17 +6,27 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'open-uri'
 
-
-20.times do
+50.times do
   boat_type = ["yacht", "sailboat", "canoe", "fishing boat"]
   Boat.create(
-  name: Faker::Coffee.blend_name,
-  price_per_day: rand(50..1000),
-  capacity: rand(2..20),
-  location: Faker::Address.full_address,
-  boat_type: boat_type.sample,
-  owner_name: Faker::Name.name,
-  description: Faker::Lorem.paragraph
+    name: Faker::Coffee.blend_name,
+    price_per_day: rand(50..1000),
+    capacity: rand(2..20),
+    location: Faker::Address.full_address,
+    boat_type: boat_type.sample,
+    owner_name: Faker::Name.name,
+    description: Faker::Lorem.paragraph,
+    boat_photo: 'https://source.unsplash.com/qToVxSYXPYU/1600x900'
   )
 end
+
+10.times do
+  User.create(
+    email: Faker::Internet.email,
+    password: '123456'
+    image:
+  )
+end
+
