@@ -22,3 +22,13 @@
 #end_date {
   background-color: white;
 }
+
+// .dates_input_wrapper {
+//   display: inline;
+//   width: 20vw;
+// }
+
+.form-control:disabled, .form-control[readonly] {
+  background-color: white;
+  opacity: 1;
+}
