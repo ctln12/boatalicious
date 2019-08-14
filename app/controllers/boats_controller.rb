@@ -15,5 +15,11 @@ class BoatsController < ApplicationController
 
   def show
     @boat = Boat.find(params[:id])
+    @booking = Booking.new
+    @booking.boat = Boat.find(params[:id])
+    price = @booking.boat.price_per_day
+    @tourism = (price * 0.02).round(2)
+    @cleaning = (price * 0.05).round(2)
+    @booking.price = (price + @tourism + @cleaning).round(2)
   end
 end
