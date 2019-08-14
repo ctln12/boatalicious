@@ -1,7 +1,22 @@
 <%= render 'home_banner' %>
+<div class="main-container d-flex">
+  <div class="cards col-8 d-flex flex-wrap justify-content-around">
+    <% @boats.each do |boat| %>
+      <%= render 'boat_card', boat: boat %>
+    <% end %>
+  </div>
+  <div
+    id="map"
+    class="col-4"
+    style="
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 
-<div class="container d-flex flex-wrap justify-content-between">
-  <% @boats.each do |boat| %>
-    <%= render 'boat_card', boat: boat %>
-  <% end %>
 </div>
+
+
+
+
+

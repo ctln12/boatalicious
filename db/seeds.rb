@@ -9,12 +9,13 @@
 require 'open-uri'
 
 50.times do
+  ports = ["Port de Pully", "Port de Vidy", "Port de Paudex"]
   boat_type = ["yacht", "sailboat", "canoe", "fishing boat"]
   Boat.create(
     name: Faker::Coffee.blend_name,
     price_per_day: rand(50..1000),
     capacity: rand(2..20),
-    location: Faker::Address.full_address,
+    location: ports.sample,
     boat_type: boat_type.sample,
     owner_name: Faker::Name.name,
     description: Faker::Lorem.paragraph,

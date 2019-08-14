@@ -1,1 +1,12 @@
 @import "show";
+
+#map {
+  height: 100vh;
+  width: 50vw;
+  position: sticky;
+  top: 0;
+}
+
+// .cards {
+//   flex-grow: 1;
+// }

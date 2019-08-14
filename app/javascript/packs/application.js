@@ -1,4 +1,7 @@
 import "bootstrap"
+
+
+
 // import "../plugins/flatpickr"
 
 import flatpickr from 'flatpickr'
@@ -10,3 +13,13 @@ flatpickr("#start_date", {
   minDate: "today",
   "plugins": [new rangePlugin({ input: "#end_date"})]
 })
+
+
+
+// Geocoding
+
+import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
+
+import { initMapbox } from '../plugins/init_mapbox';
+
+initMapbox();
