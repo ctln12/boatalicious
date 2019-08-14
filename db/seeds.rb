@@ -7,9 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'open-uri'
+Booking.destroy_all
+Boat.destroy_all
 
-50.times do
-  ports = ["Port de Pully", "Port de Vidy", "Port de Paudex"]
+10.times do
+  ports = ["Port de Pully", "Port de Vidy", "Port de Paudex", "Port de Thonon-les-Bains", "Port de Nyon", "Port de Villeneuve", "Port Noir"]
   boat_type = ["yacht", "sailboat", "canoe", "fishing boat"]
   Boat.create(
     name: Faker::Coffee.blend_name,
