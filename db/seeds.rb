@@ -10,7 +10,7 @@ require 'open-uri'
 Booking.destroy_all
 Boat.destroy_all
 
-10.times do
+20.times do
   ports = ["Port de Pully", "Port de Vidy", "Port de Paudex", "Port de Thonon-les-Bains", "Port de Nyon", "Port de Villeneuve", "Port Noir"]
   boat_type = ["yacht", "sailboat", "canoe", "fishing boat"]
   description = "Allons! the inducements shall be greater,
