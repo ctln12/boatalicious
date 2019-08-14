@@ -17,7 +17,9 @@
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://download.ams.birds.cornell.edu/api/v1/asset/169495571/1800" />
+        <% if user_signed_in? %>
+          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://download.ams.birds.cornell.edu/api/v1/asset/169495571/1800" />
+        <% end %>
       </li>
     </ul>
   </div>
