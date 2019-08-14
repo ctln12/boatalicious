@@ -2,17 +2,26 @@
   background-color: white;
   font-family: 'Open Sans', sans-serif;
   color: blue;
+
 }
 
 .container {
   background-color: white;
   border-radius: 4px;
-  width: 50vw;
+  width: 30vw;
+  padding: 1em;
+  margin: 1em auto;
+  box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.125);
+  h1 {
+    font-family: "Open-sans";
+    font-size: 2em;
+    text-align: center;
+  }
 }
 
 
-.button {
-  background: blue;
+.btn {
+ width: 100%;
 }
 
 #start_date {
@@ -23,12 +32,23 @@
   background-color: white;
 }
 
-// .dates_input_wrapper {
-//   display: inline;
-//   width: 20vw;
-// }
+.form-wrapper {
+  margin-bottom: 1em;
+}
 
 .form-control:disabled, .form-control[readonly] {
   background-color: white;
   opacity: 1;
+}
+
+.fees > p {
+  display: block;
+  font-family: 'Raleway';
+  font-size: 0.7em;
+  // color: blue;
+}
+
+.fees {
+  display: flex;
+  justify-content: space-between;
 }

@@ -1,12 +1,22 @@
 <div class="container">
   <div class="form-wrapper">
-    <h1>Make a booking</h1>
+    <h1><%= @boat.price_per_day %>.- <span style="font-size: 0.6em"> CHF per day</span></h1>
     <%= simple_form_for @booking do |f| %>
       <%= f.input :start_date, as: :string, label: false, wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Pick a date", input_html: { id: 'start_date' } %>
       <%= f.input :end_date, as: :string, wrapper_html: { class: 'dates_input_wrapper' }, label: false, input_html: { id: 'end_date' } %>
       <%= f.button :submit, class: 'btn btn-primary'  %>
     <% end %>
-    <%= @booking.boat %>
+  </div>
+  <div class="fees">
+    <p>Cleaning fees</p>
+    <p><%= cleaning = (@boat.price_per_day * 0.05).round(2) %>  CHF per day</p>
+  </div>
+  <div class="fees">
+    <p>Tourism fees</p>
+    <p><%= tourism = (@boat.price_per_day * 0.02).round(2) %>  CHF per day</p>
+  </div>
+  <div class="fees">
+    <p>Total price</p>
+    <p><%= (@boat.price_per_day + tourism + cleaning).round(2)%> CHF per day</p>
   </div>
 </div>
-
