@@ -1,0 +1,18 @@
+<a href="#" class="card-boats">
+  <div class="card mt-4 card-boats-size">
+    <img src="<%= booking.boat.image_url %>" class="card-img-top card-boats-image-height" alt="boat image">
+    <div class="card-body card-boats-body-height">
+      <!-- <h6 class="card-subtitle mb-2 text-muted card-boats-font-size"><%= booking.boat.boat_type %></h6> -->
+      <p class="card-text card-boats-text-font-size">
+      <h5 class="card-title"><%= booking.boat.name %></h5>
+        <div class="row">
+          <div class="col card-boats-text-font-size">Location: <%= booking.boat.location.match(/,\s(.+),/)[1] %></div>
+          <div class="col card-boats-text-font-size text-right"><%= booking.price %>.-</div>
+        </div>
+        <div class="row">
+          <div class="col card-boats-text-font-size">From <%= booking.start_date %></div>
+          <div class="col card-boats-text-font-size text-right">to  <%= booking.end_date %></div>
+        </div>
+    </div>
+  </div>
+</a>
