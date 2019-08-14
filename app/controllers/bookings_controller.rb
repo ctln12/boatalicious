@@ -1,4 +1,8 @@
 class BookingsController < ApplicationController
+  def index
+    @bookings = Booking.all
+  end
+
   def new
     @booking = Booking.new
     @booking.boat = Boat.find(params[:boat])
@@ -18,12 +22,6 @@ class BookingsController < ApplicationController
       render :new
     end
     console
-
-
-
-  end
-
-  def index
   end
 
   private
@@ -39,5 +37,3 @@ class BookingsController < ApplicationController
     (price + tourism + cleaning).round(2)
   end
 end
-
-# calculate the price based on the boat
