@@ -33,3 +33,7 @@ end
 
 # creating the seed
 gem 'faker'
+
+
+# geocoding
+gem 'geocoder'
