@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'open-uri'
+Boat.destroy_all
 
 50.times do
   ports = ["Port de Pully", "Port de Vidy", "Port de Paudex"]
