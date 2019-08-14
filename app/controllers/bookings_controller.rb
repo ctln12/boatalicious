@@ -21,7 +21,6 @@ class BookingsController < ApplicationController
     else
       render :new
     end
-    console
   end
 
   private
