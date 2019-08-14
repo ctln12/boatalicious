@@ -1,5 +1,5 @@
-<div class="navbar navbar-expand-sm fixed-top navbar-dark bg-transparent navbar-boatalicious">
-  <%= link_to "Boatalicous", "/", class: "navbar-brand" %>
+<div class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark navbar-boatalicious">
+  <%= link_to "Boatalicious", "/", class: "navbar-brand" %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -8,7 +8,20 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= link_to "Sign In", "#", class: "nav-link" %>
+        <%= link_to "Sign Up", "/users/sign_up", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Sign In", "/users/sign_in", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <% if user_signed_in? %>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <% if user_signed_in? %>
+          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://download.ams.birds.cornell.edu/api/v1/asset/169495571/1800" />
+        <% end %>
       </li>
     </ul>
   </div>

@@ -9,15 +9,10 @@
 
 .card-boats-size {
   width: 330px;
-  height: 310px;
 }
 
 .card-boats-image-height {
   height: 200px;
-}
-
-.card-boats-body-height {
-  height: 280px;
 }
 
 .card-boats-font-size {
@@ -83,4 +78,12 @@
   }
 }
 
+// /bookings/index.html.erb
 
+.card-booking {
+  flex-direction: row;
+}
+
+.card-booking-item {
+  width: 500px
+}
