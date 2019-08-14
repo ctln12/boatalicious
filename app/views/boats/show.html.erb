@@ -23,6 +23,11 @@
     <div class="card-description">
       <%= @boat.description %>
     </div>
+    <div
+      id="boat_map"
+      data-markers="<%= @marker.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
   </div>
   <%= render 'bookings/booking_form' %>
   <!-- <div class="d-flex justify-content-center align-items-center">

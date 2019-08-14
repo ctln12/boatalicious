@@ -3,7 +3,7 @@ class BoatsController < ApplicationController
 
   def index
     @boats = Boat.all
-    @boats_geo = Boat.geocoded #returns flats with coordinates
+    @boats_geo = Boat.geocoded #returns boats with coordinates
 
     @markers = @boats_geo.map do |boat|
       {
@@ -21,5 +21,9 @@ class BoatsController < ApplicationController
     @tourism = (price * 0.02).round(2)
     @cleaning = (price * 0.05).round(2)
     @booking.price = (price + @tourism + @cleaning).round(2)
+
+    @boat_geo = Boat.geocoded.find(params[:id]) #returns boat with coordinates
+
+    @marker = [{ lat: @boat_geo.latitude, lng: @boat_geo.longitude }]
   end
 end
