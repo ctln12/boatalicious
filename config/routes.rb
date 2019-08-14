@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'bookings/new', to: 'bookings#new'
-  get 'bookings/', to: 'bookings#create'
+  post 'bookings/', to: 'bookings#create'
   get 'bookings', to: 'bookings#index'
   devise_for :users
   root to: 'boats#index'
