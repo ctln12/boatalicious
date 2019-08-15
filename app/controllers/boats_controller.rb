@@ -3,12 +3,17 @@ class BoatsController < ApplicationController
 
   def new
     @boat = Boat.new
-    @boat.user = User.find(53)
   end
 
   def create
     @boat = Boat.new(boat_params)
-    raise
+    @boat.user = User.find(53)
+    if @boat.save
+      redirect_to bookings_path
+    else
+      render :new
+    end
+    console
   end
 
   def index
@@ -40,6 +45,6 @@ class BoatsController < ApplicationController
   private
 
   def boat_params
-    params.require(:boat).permit(:name, :image_url, :price_per_day, :capacity, :location, :boat_type, :description, :image_url, :user_id)
+    params.require(:boat).permit(:name, :photo, :price_per_day, :capacity, :location, :boat_type, :description, :image_url, :user_id)
   end
 end

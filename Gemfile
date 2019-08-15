@@ -38,5 +38,7 @@ gem 'faker'
 # geocoding
 gem 'geocoder'
 
-# cloudinary
+# image hosting
 gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
+
