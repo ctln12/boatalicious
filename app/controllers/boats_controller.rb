@@ -1,6 +1,22 @@
 class BoatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
+  def new
+    @boat = Boat.new
+  end
+
+  def create
+    @boat = Boat.new(boat_params)
+    @boat.user = User.find(53)
+    if @boat.save
+      redirect_to boat_show_path(@boat)
+
+    else
+      render :new
+    end
+    console
+  end
+
   def index
     @boats = Boat.all
     @boats_geo = Boat.geocoded #returns boats with coordinates
@@ -25,5 +41,11 @@ class BoatsController < ApplicationController
     @boat_geo = Boat.geocoded.find(params[:id]) #returns boat with coordinates
 
     @marker = [{ lat: @boat_geo.latitude, lng: @boat_geo.longitude }]
+  end
+
+  private
+
+  def boat_params
+    params.require(:boat).permit(:name, :photo, :price_per_day, :capacity, :location, :boat_type, :description, :image_url, :user_id)
   end
 end

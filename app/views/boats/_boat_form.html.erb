@@ -1,0 +1,14 @@
+<div class="form-wrapper">
+    <h1>New boat</h1>
+    <%= simple_form_for @boat do |f| %>
+      <%= f.input :name, as: :string, label: false, wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Boat Name" %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.input :capacity, collection: 1..20, inline_label: 'capacity', wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Capacity" %>
+      <%= f.input :location, as: :string, label: false, wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Address" %>
+      <%= f.input :price_per_day, as: :integer, label: false, wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Price per day" %>
+      <%= f.input :boat_type, collection: ["yacht", "sailboat", "canoe", "fishing boat"], wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Type of Boat" %>
+      <%= f.input :description, as: :text, label: false, wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Description" %>
+      <%= f.button :submit, class: 'btn btn-primary'  %>
+    <% end %>
+  </div>
