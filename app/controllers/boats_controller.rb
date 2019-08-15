@@ -6,6 +6,11 @@ class BoatsController < ApplicationController
     @boat.user = User.find(53)
   end
 
+  def create
+    @boat = Boat.new(boat_params)
+    raise
+  end
+
   def index
     @boats = Boat.all
     @boats_geo = Boat.geocoded #returns boats with coordinates
@@ -30,5 +35,11 @@ class BoatsController < ApplicationController
     @boat_geo = Boat.geocoded.find(params[:id]) #returns boat with coordinates
 
     @marker = [{ lat: @boat_geo.latitude, lng: @boat_geo.longitude }]
+  end
+
+  private
+
+  def boat_params
+    params.require(:boat).permit(:name, :image_url, :price_per_day, :capacity, :location, :boat_type, :description, :image_url, :user_id)
   end
 end
