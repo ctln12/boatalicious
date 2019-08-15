@@ -1,3 +1,7 @@
-<h2><%= boat.name %></h2>
-<p><%= boat.location %></p>
 
+<div class="info-window" style="background-image: url('<%= boat.photo.to_s %>');">
+  <div class="contaier">
+    <h2 style><%= boat.name %></h2>
+    <p><%= boat.location %></p>
+  </div>
+</div>

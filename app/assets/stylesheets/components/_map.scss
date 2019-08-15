@@ -6,3 +6,13 @@
   text-align: center;
   font-family: 'Open Sans', sans-serif;
 }
+
+.info-window {
+  background-size: cover;
+  padding: 1em;
+  text-shadow: black 1px 0 10px;
+  color: white;
+  p {
+    font-weight: bold;
+  }
+}
