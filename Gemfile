@@ -37,3 +37,6 @@ gem 'faker'
 
 # geocoding
 gem 'geocoder'
+
+# cloudinary
+gem 'dotenv-rails', groups: [:development, :test]
