@@ -1,28 +1,29 @@
 <div class="container">
   <div class="top">
     <h1>Your bookings</h1>
-    <% if current_user.bookings %>
-      <div class="container d-flex flex-wrap justify-content-between">
+    <% if current_user.bookings.first %>
+      <div class="container d-flex flex-wrap justify-content-around">
         <% current_user.bookings.each do |booking| %>
           <%= render 'booking_card', booking: booking %>
         <% end %>
       </div>
     <% else %>
-      <div style="height: 20vh;">
+      <div style="height: 30vh;">
         <h2>It looks like you don't have any bookings yet</h2>
       </div>
     <% end %>
   </div>
+  <hr>
   <div class="top">
     <h1>Your boats</h1>
-    <% if current_user.boats %>
-      <div class="container d-flex flex-wrap justify-content-between">
+    <% if current_user.boats.first %>
+      <div class="container d-flex flex-wrap justify-content-around">
         <% current_user.boats.each do |boat| %>
-          <%= render 'boat_card', boat: boat %>
+          <%= render 'boats/boat_card', boat: boat %>
         <% end %>
       </div>
     <% else %>
-      <div style="height: 20vh;">
+      <div style="height: 30vh;">
         <h2>It looks like you don't have any bookings yet</h2>
       </div>
     <% end %>
