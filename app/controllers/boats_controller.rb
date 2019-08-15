@@ -9,7 +9,8 @@ class BoatsController < ApplicationController
     @boat = Boat.new(boat_params)
     @boat.user = User.find(53)
     if @boat.save
-      redirect_to bookings_path
+      redirect_to boat_show_path(@boat)
+
     else
       render :new
     end
