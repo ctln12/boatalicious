@@ -27,7 +27,28 @@ const initMapbox = () => {
   }
 };
 
+const initBoatMapbox = () => {
+  const boatMapElement = document.getElementById('boat_map');
+
+  if (boatMapElement) { // only build a map if there's a div#map to inject into
+    mapboxgl.accessToken = boatMapElement.dataset.mapboxApiKey;
+    const boatMap = new mapboxgl.Map({
+      container: 'boat_map',
+      style: 'mapbox://styles/mapbox/streets-v11'
+    });
+    const markers = JSON.parse(boatMapElement.dataset.markers);
+    markers.forEach((marker) => {
+      new mapboxgl.Marker()
+        .setLngLat([ marker.lng, marker.lat ])
+        .addTo(boatMap);
+    });
+    fitMapToMarkers(boatMap, markers);
+  }
+};
+
 export { initMapbox };
+export { initBoatMapbox };
+
 
 
 // if (mapElement) {

@@ -1,6 +1,6 @@
 <%= render partial: 'boat_banner', object: @boat %>
 <div class="container d-flex justify-content-around">
-  <div class="boat-details">
+  <div class="boat-details col-6">
     <div class="card-boat-name">
       <div class="card-trip-infos">
         <h1><%= @boat.name %></h1>
@@ -23,10 +23,16 @@
     <div class="card-description">
       <%= @boat.description %>
     </div>
+    <div
+      id="boat_map"
+      data-markers="<%= @marker.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
   </div>
-  <div class="d-flex justify-content-center align-items-center">
-    <%= link_to "Book Now", bookings_new_path(boat: @boat), class: 'btn btn-primary m-5' %>
-  </div>
+  <%= render 'bookings/booking_form' %>
+  <!-- <div class="d-flex justify-content-center align-items-center">
+
+  </div> -->
 
 </div>
 
