@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.price = price_per_day(@booking)
-    @booking.user = User.find(53)
+    @booking.user = current_user
     if @booking.save
       redirect_to bookings_path
     else
