@@ -1,9 +1,13 @@
 <div class="form-wrapper">
     <h1>New boat</h1>
     <%= simple_form_for boats_new_path(@boat) do |f| %>
-      <%= f.input :user_id, as: :hidden %>
-      <%= f.input :start_date, as: :string, label: false, wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Pick a date", input_html: { id: 'start_date' } %>
-      <%= f.input :end_date, as: :string, wrapper_html: { class: 'dates_input_wrapper' }, label: false, input_html: { id: 'end_date' } %>
+      <%= f.input :name, as: :string, label: false, wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Boat Name" %>
+      <%= f.input :image_url, as: :string, label: false, wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Image Url" %>
+      <%= f.input :capacity, collection: 1..20, inline_label: 'capacity', wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Capacity" %>
+      <%= f.input :location, as: :string, label: false, wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Address" %>
+      <%= f.input :price_per_day, as: :string, label: false, wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Price per day" %>
+      <%= f.input :type, as: :string, label: false, wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Type of Boat" %>
+      <%= f.input :description, as: :text, label: false, wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Description" %>
       <%= f.button :submit, class: 'btn btn-primary'  %>
     <% end %>
   </div>
