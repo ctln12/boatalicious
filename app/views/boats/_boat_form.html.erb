@@ -5,7 +5,7 @@
       <%= f.input :photo %>
       <%= f.input :photo_cache, as: :hidden %>
       <%= f.input :capacity, collection: 1..20, inline_label: 'capacity', wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Capacity" %>
-      <%= f.input :location, as: :string, label: false, wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Address" %>
+      <%= f.input :location, as: :string, label: false, wrapper_html: { class: 'dates_input_wrapper' }, input_html: { id: 'boat_address' }, placeholder: "Address" %>
       <%= f.input :price_per_day, as: :integer, label: false, wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Price per day" %>
       <%= f.input :boat_type, collection: ["yacht", "sailboat", "canoe", "fishing boat"], wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Type of Boat" %>
       <%= f.input :description, as: :text, label: false, wrapper_html: { class: 'dates_input_wrapper' }, placeholder: "Description" %>

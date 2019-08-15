@@ -28,3 +28,7 @@ initMapbox();
 import { initBoatMapbox } from '../plugins/init_mapbox';
 
 initBoatMapbox();
+
+import { initAutocomplete } from '../plugins/init_autocomplete'
+
+initAutocomplete();
