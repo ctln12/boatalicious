@@ -14,7 +14,6 @@ class BoatsController < ApplicationController
     else
       render :new
     end
-    console
   end
 
   def index
