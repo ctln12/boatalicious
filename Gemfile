@@ -37,3 +37,6 @@ gem 'faker'
 
 # geocoding
 gem 'geocoder'
+
+# cloudinary
+gem 'cloudinary', '~> 1.9.1'
