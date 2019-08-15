@@ -1,6 +1,10 @@
 class BoatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
+  def new
+    @boat = Boat.new(user_id: 53)
+  end
+
   def index
     @boats = Boat.all
     @boats_geo = Boat.geocoded #returns boats with coordinates
