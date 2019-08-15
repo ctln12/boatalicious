@@ -17,6 +17,9 @@ avatars = ['https://download.ams.birds.cornell.edu/api/v1/asset/28489491/medium'
             'https://download.ams.birds.cornell.edu/api/v1/asset/27440241/medium', \
             'https://download.ams.birds.cornell.edu/api/v1/asset/29063561/medium'
             ]
+
+boat_photo = ['artem-sapegin-XGDBdSQ70O0-unsplash.jpg','bobby-burch-7ghPaPLdmTY-unsplash.jpg', 'casey-horner-Hv6-X3RGq6Q-unsplash.jpg', 'craig-cameron-J7wc9brCLBs-unsplash.jpg', 'gautam-krishnan-q84-1IeZytc-unsplash.jpg', 'janek-holoubek-15gOocGd8Qc-unsplash.jpg', 'johny-vino-B7zI7Gd3rgQ-unsplash.jpg', 'maxi-am-brunnen-_jYWndzkkVo-unsplash.jpg', 'mickey-o-neil-xL66l--msXU-unsplash.jpg', 'osman-rana-Oi1fJwi35oI-unsplash.jpg']
+
 counter = 0
 5.times do
   user = User.create(
@@ -55,7 +58,7 @@ counter = 0
       location: ports.sample,
       boat_type: boat_type.sample,
       description: description,
-      image_url: 'https://source.unsplash.com/qToVxSYXPYU/1600x900',
+      photo: File.open("app/assets/images/#{boat_photo.sample}"),
       user_id: user.id
     )
   end
