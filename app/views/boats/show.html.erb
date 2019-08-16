@@ -4,7 +4,8 @@
     <div class="card-boat-name">
       <div class="card-trip-infos">
         <h1><%= @boat.name %></h1>
-        <p><%= @boat.location %></p>
+        <p class="mb-2"><%= @boat.location %></p>
+        <p><%= @boat.user.email %></p>
       </div>
       <img src="<% if @boat.user.user_image.nil? %>
                   <%= image_url('default_avatar.svg') %>
