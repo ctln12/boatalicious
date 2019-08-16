@@ -15,16 +15,18 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @booking = Booking.new(booking_params)
+    @booking.price = price_per_day(@booking)
+    @booking.user = current_user
     # Check to see if the user is registered/logged in
     if current_user.nil?
       # Store the form data in the session so we can retrieve it after login
+      params[:booking]["price"] = @booking.price
       session[:form_data] = params
+      # raise console
       # Redirect the user to register/login
       redirect_to new_user_session_path
     else
-      @booking = Booking.new(booking_params)
-      @booking.price = price_per_day(@booking)
-      @booking.user = current_user
       if @booking.save
         redirect_to(bookings_path(@booking.user, @booking), :notice => 'Sweet, your booking has been created.')
       else
@@ -36,7 +38,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :boat_id)
+    params.require(:booking).permit(:start_date, :end_date, :price, :boat_id)
   end
 
   def price_per_day(booking)
