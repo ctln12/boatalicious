@@ -23,7 +23,9 @@ class BoatsController < ApplicationController
     @markers = @boats_geo.map do |boat|
       {
         lat: boat.latitude,
-        lng: boat.longitude
+        lng: boat.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { boat: boat }),
+        image_url: helpers.asset_url('anchor_black.png')
       }
     end
   end
