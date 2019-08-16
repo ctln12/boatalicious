@@ -9,10 +9,17 @@
 
 .info-window {
   background-size: cover;
-  padding: 1em;
-  text-shadow: black 1px 0 10px;
+  padding: 0.5em;
+  text-shadow: rgba(0,0,0,0.5) 1px 0 10px;
   color: white;
   p {
     font-weight: bold;
+  }
+}
+
+#window-link {
+  &:hover {
+    text-decoration: none;
+    color: black;
   }
 }
