@@ -6,7 +6,12 @@
         <h1><%= @boat.name %></h1>
         <p><%= @boat.location %></p>
       </div>
-      <img src="<%= @boat.user.user_image %>" class="card-trip-user avatar-bordered" />
+      <img src="<% if @boat.user.user_image.nil? %>
+                  <%= image_url('default_avatar.svg') %>
+                <% else %>
+                  <%= @boat.user.user_image %>
+                <% end %>"
+           class="card-trip-user avatar-bordered" />
     </div>
     <hr>
     <div class="card-boat-amenities d-flex">
