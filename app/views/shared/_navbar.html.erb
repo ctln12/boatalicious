@@ -17,6 +17,9 @@
       <% end %>
       <li class="nav-item dropdown">
         <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to current_user.email, "/bookings", class: "nav-link" %>
+          </li>
           <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
           src=" <% if current_user.user_image.nil? %>
                   <%= image_url('default_avatar.svg') %>
