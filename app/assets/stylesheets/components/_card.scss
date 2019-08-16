@@ -31,6 +31,11 @@
   font-size: 12px;
 }
 
+.card-price {
+  font-size: 14px;
+  font-weight: bold;
+}
+
 // show.html.erb
 .card-boat-name {
   overflow: hidden;
@@ -83,8 +88,15 @@
 
 .card-booking {
   flex-direction: row;
+  p {
+    font-weight: bold;
+  }
 }
 
 .card-booking-item {
   width: 500px
+}
+
+#booking-title {
+  // margin-bottom: .2em;
 }
