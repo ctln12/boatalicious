@@ -1,5 +1,15 @@
 // index.html.erb
+.card-text {
+  margin: 0;
+  p {
+    margin: .2em;
+  }
+}
 
+.card-title {
+  margin-top: 0;
+  letter-spacing: 0.08em
+}
 .card-boats{
   color: black;
   margin-top: 40px;
