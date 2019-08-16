@@ -2,12 +2,13 @@
   <div class="card-boats-size">
     <img src="<%= boat.photo ? boat.photo : boat.image_url %>" class="card-img-top card-boats-image-height" alt="boat image">
     <div class="card-body card-boats-body-height">
-      <h6 class="card-subtitle mb-2 text-muted card-boats-font-size"><%= boat.boat_type %></h6>
+      <h6 class="card-subtitle mb-1 text-muted card-boats-font-size"><%= boat.boat_type %></h6>
       <h5 class="card-title"><%= boat.name %></h5>
       <p class="card-text card-boats-text-font-size">
-        <%= boat.location %> |
-        <%= boat.capacity %> p |
-        <%= boat.user.email %>
+        <%= boat.location %>
+      </p>
+      <p class="card-text card-boats-text-font-size">
+        <%= boat.capacity %> people
       </p>
     </div>
   </div>
