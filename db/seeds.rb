@@ -1,67 +1,139 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 require 'open-uri'
+
+puts 'Deleting bookings...'
 Booking.destroy_all
+
+puts 'Deleting boats...'
 Boat.destroy_all
+
+puts 'Deleting users...'
 User.destroy_all
 
-avatars = ['https://download.ams.birds.cornell.edu/api/v1/asset/28489491/medium', \
-            'https://download.ams.birds.cornell.edu/api/v1/asset/169495571/1800', \
-            'https://download.ams.birds.cornell.edu/api/v1/asset/28488411/medium', \
-            'https://download.ams.birds.cornell.edu/api/v1/asset/27440241/medium', \
-            'https://download.ams.birds.cornell.edu/api/v1/asset/29063561/medium'
-            ]
+puts 'Creating 16 users...'
 
-boat_photo = ['artem-sapegin-XGDBdSQ70O0-unsplash.jpg','bobby-burch-7ghPaPLdmTY-unsplash.jpg', 'casey-horner-Hv6-X3RGq6Q-unsplash.jpg', 'craig-cameron-J7wc9brCLBs-unsplash.jpg', 'gautam-krishnan-q84-1IeZytc-unsplash.jpg', 'janek-holoubek-15gOocGd8Qc-unsplash.jpg', 'johny-vino-B7zI7Gd3rgQ-unsplash.jpg', 'maxi-am-brunnen-_jYWndzkkVo-unsplash.jpg', 'mickey-o-neil-xL66l--msXU-unsplash.jpg', 'osman-rana-Oi1fJwi35oI-unsplash.jpg']
+puts '... 1 renter'
+renter = User.new(
+  email: 'john.marshall@gmail.com',
+  password: '123456'
+)
+renter.save!
 
-counter = 0
-5.times do
-  user = User.create(
-    email: Faker::Internet.email,
-    password: '123456',
-    user_image: avatars[counter]
-  )
-  counter += 1
-  rand(3..5).times do
-    ports = ["Port de Pully", "Port de Vidy", "Port de Paudex", "Port de Thonon-les-Bains", "Port de Nyon", "Port de Villeneuve", "Port Noir"]
-    boat_type = ["yacht", "sailboat", "canoe", "fishing boat"]
-    description = "Allons! the inducements shall be greater,
-                    We will sail pathless and wild seas,
-                    We will go where winds blow, waves dash, and the Yankee clipper speeds by under full sail.
+puts '... 15 owners'
 
-                    Allons! with power, liberty, the earth, the elements,
-                    Health, defiance, gayety, self-esteem, curiosity;
-                    Allons! from all formules!
-                    From your formules, O bat-eyed and materialistic priests.
+ports = ['Port de Pully', 'Port de Vidy', 'Port de Paudex', 'Port de Thonon-les-Bains', 'Port de Nyon', 'Port de Villeneuve', 'Port Noir']
 
-                    The stale cadaver blocks up the passage—the burial waits no longer.
+def boat_description(boat_type)
+  boat_adjectives = ['Beautiful', 'Lovely', 'Spacious', 'Marvelous', 'Sensational', 'Stunning']
+  afternoon_adjectives = ['exciting', 'incredible', 'awesome', 'amazing', 'exceptional']
 
-                    Allons! yet take warning!
-                    He traveling with me needs the best blood, thews, endurance,
-                    None may come to the trial till he or she bring courage and health,
-                    Come not here if you have already spent the best of yourself,
-                    Only those may come who come in sweet and determin’d bodies,
-                    No diseas’d person, no rum-drinker or venereal taint is permitted here.
-
-                    (I and mine do not convince by arguments, similes, rhymes,
-                    We convince by our presence.) "
-    Boat.create(
-      name: Faker::Coffee.blend_name,
-      price_per_day: rand(50..1000),
-      capacity: rand(2..20),
-      location: ports.sample,
-      boat_type: boat_type.sample,
-      description: description,
-      photo: File.open("app/assets/images/#{boat_photo.sample}"),
-      user_id: user.id
-    )
+  if boat_type == 'catamaran'
+    "#{boat_adjectives.sample} catamaran with cabin and WC for an #{afternoon_adjectives.sample} day!"
+  elsif boat_type == 'motorboat'
+    "Want to spend an #{afternoon_adjectives.sample} afternoon? Try this #{boat_adjectives.sample.downcase} motorboat!"
+  elsif boat_type == 'sailboat'
+    "Go on an #{afternoon_adjectives.sample} adventure onboard this #{boat_adjectives.sample.downcase} sailboot!"
   end
-
 end
 
+def compute_capacity(boat_type)
+  if boat_type == 'catamaran'
+    rand(10..15)
+  elsif boat_type == 'motorboat'
+    rand(6..10)
+  elsif boat_type == 'sailboat'
+    rand(2..8)
+  end
+end
+
+def compute_price_per_day(boat_type)
+  if boat_type == 'catamaran'
+    rand(70..90)
+  elsif boat_type == 'motorboat'
+    rand(60..80)
+  elsif boat_type == 'sailboat'
+    rand(50..70)
+  end
+end
+
+boats = [
+  {
+    type: 'catamaran',
+    female_owner_photos: [
+      'https://res.cloudinary.com/digkmcfas/image/upload/v1586540165/Rails%20Boatalicious/catamaran-1_qyzc2r.jpg',
+      'https://res.cloudinary.com/digkmcfas/image/upload/v1586542368/Rails%20Boatalicious/catamaran-2_iwisnc.jpg'
+    ],
+    male_owner_photos: [
+      'https://res.cloudinary.com/digkmcfas/image/upload/v1586540162/Rails%20Boatalicious/catamaran-3_xn36ht.jpg',
+      'https://res.cloudinary.com/digkmcfas/image/upload/v1586540163/Rails%20Boatalicious/catamaran-4_cr5ium.jpg',
+      'https://res.cloudinary.com/digkmcfas/image/upload/v1586540162/Rails%20Boatalicious/catamaran-5_b2jtib.jpg'
+    ]
+  },
+  {
+    type: 'motorboat',
+    female_owner_photos: [
+      'https://res.cloudinary.com/digkmcfas/image/upload/v1586540188/Rails%20Boatalicious/motorboat-1_i31vxb.jpg',
+      'https://res.cloudinary.com/digkmcfas/image/upload/v1586540187/Rails%20Boatalicious/motorboat-2_rbq7cd.jpg'
+    ],
+    male_owner_photos: [
+      'https://res.cloudinary.com/digkmcfas/image/upload/v1586540188/Rails%20Boatalicious/motorboat-3_gnpc0o.jpg',
+      'https://res.cloudinary.com/digkmcfas/image/upload/v1586540186/Rails%20Boatalicious/motorboat-4_sgyuud.jpg',
+      'https://res.cloudinary.com/digkmcfas/image/upload/v1586540182/Rails%20Boatalicious/motorboat-5_wbtnom.jpg'
+    ]
+  },
+  {
+    type: 'sailboat',
+    female_owner_photos: [
+      'https://res.cloudinary.com/digkmcfas/image/upload/v1586540187/Rails%20Boatalicious/sailboat-1_wtebds.jpg',
+      'https://res.cloudinary.com/digkmcfas/image/upload/v1586540185/Rails%20Boatalicious/sailboat-2_erx8f3.jpg'
+    ],
+    male_owner_photos: [
+      'https://res.cloudinary.com/digkmcfas/image/upload/v1586540191/Rails%20Boatalicious/sailboat-3_vpk8zn.jpg',
+      'https://res.cloudinary.com/digkmcfas/image/upload/v1586540194/Rails%20Boatalicious/sailboat-4_jo4kag.jpg',
+      'https://res.cloudinary.com/digkmcfas/image/upload/v1586540189/Rails%20Boatalicious/sailboat-5_tpaco2.jpg'
+    ]
+  }
+]
+
+boats.each do |boat|
+  puts "... creating #{boat[:type]}s"
+  puts '    ... 2 boats with female owner'
+  boat[:female_owner_photos].each do |photo_url|
+    female_owner = User.new(
+      email: "#{Faker::Name.female_first_name.downcase}.#{Faker::Name.last_name.downcase}@gmail.com",
+      password: '123456'
+    )
+    female_owner.save!
+    new_boat = Boat.new(
+      name: Faker::Coffee.blend_name,
+      price_per_day: compute_price_per_day(boat[:type]),
+      capacity: compute_capacity(boat[:type]),
+      location: ports.sample,
+      boat_type: boat[:type],
+      description: boat_description(boat[:type]),
+      remote_photo_url: photo_url,
+      user_id: female_owner.id
+    )
+    new_boat.save!
+  end
+  puts '    ... 3 boats with male owner'
+  boat[:male_owner_photos].each do |photo_url|
+    male_owner = User.new(
+      email: "#{Faker::Name.male_first_name.downcase}.#{Faker::Name.last_name.downcase}@gmail.com",
+      password: '123456'
+    )
+    male_owner.save!
+    new_boat = Boat.new(
+      name: Faker::Coffee.blend_name,
+      price_per_day: compute_price_per_day(boat[:type]),
+      capacity: compute_capacity(boat[:type]),
+      location: ports.sample,
+      boat_type: boat[:type],
+      description: boat_description(boat[:type]),
+      remote_photo_url: photo_url,
+      user_id: male_owner.id
+    )
+    new_boat.save!
+  end
+end
+
+puts 'Finished!'

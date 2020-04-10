@@ -1,6 +1,6 @@
 <a href="/boats/<%= boat.id %>" class="card-boats">
   <div class="card-boats-size">
-    <img src="<%= boat.photo ? boat.photo : boat.image_url %>" class="card-img-top card-boats-image-height" alt="boat image">
+    <%= cl_image_tag boat.photo, class: "card-img-top card-boats-image-height", aspect_ratio:"4:3", crop: "fill" %>
     <div class="card-body card-boats-body-height">
       <h6 class="card-subtitle mb-1 text-muted card-boats-font-size"><%= boat.boat_type %></h6>
       <h5 class="card-title"><%= boat.name %></h5>
