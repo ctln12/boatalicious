@@ -1,9 +1,13 @@
 <%= render 'home_banner' %>
 <div class="main-container d-flex">
-  <div class="cards col-8 d-flex flex-wrap justify-content-around">
-    <% @boats.each do |boat| %>
-      <%= render 'boat_card', boat: boat %>
-    <% end %>
+  <div class="cards col-8">
+    <div class="row mt-5">
+      <% @boats.each do |boat| %>
+        <div class="col-6 mb-5">
+          <%= render 'boat_card', boat: boat %>
+        </div>
+      <% end %>
+    </div>
   </div>
   <div
     id="map"
