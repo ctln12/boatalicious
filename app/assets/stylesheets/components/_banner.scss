@@ -4,7 +4,7 @@
   background-image: url("boats_home_banner.jpg");
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: calc(100vh - 56px);
   display: flex;
   align-items: center;
   justify-content: center;
